@@ -4,9 +4,10 @@ from communication.api.tcg_fetcher import TCGFetcher
 from application.core_manager import CoreManager 
 from communication.api_server import RestApiServer
 from flask import Flask
+import os
 
-
-TCG_CONFIG_FILE = "C:\\Users\\Admin\\PythonProjects\\DIoTSA\\PokeAPIApp_v2\\config\\api_config.yaml"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+TCG_CONFIG_FILE = os.path.join(BASE_DIR, "config", "api_config.yaml")
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///collezione.db'
