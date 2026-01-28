@@ -33,8 +33,8 @@ The project is built using a layered architectural pattern to ensure maintainabi
 
 1. **Clone the repository**
 ```bash
-   git clone [https://github.com/yourusername/pokemon-tcg-tracker.git](https://github.com/yourusername/pokemon-tcg-tracker.git)
-   cd pokemon-tcg-tracker
+   git clone [https://github.com/yourusername/PokemonTCG-App.git](https://github.com/yourusername/PokemonTCG-App.git)
+   cd PokemonTCG-App
 
 ```
 
