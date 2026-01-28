@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Mini-Collezione Pokémon TCG</title>
+
+    <style>
+        /* --- STILI GENERALI --- */
+        body { 
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Poppins per un look moderno */
+            margin: 0; 
+            background-color: #ecf0f5; /* Sfondo grigio molto chiaro */
+            color: #2c3e50; 
+            line-height: 1.6;
+        }
+        
+        /* --- HEADER & CONTAINER --- */
+        header { 
+            background-image: url('C:\\Users\\Admin\\Desktop\\sfondo.jpg'); 
+            background-position: center center; 
+            background-size: cover; 
+            background-repeat: no-repeat;
+            color: white; 
+            padding: 40px 20px; 
+            text-align: center; 
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); 
+        }
+        h1 {
+            font-size: 2.5em;
+            margin: 0;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+        .container { 
+            max-width: 1200px; 
+            margin: 40px auto; 
+            padding: 0 20px;
+        }
+
+        /* --- TABS --- */
+        .tabs { 
+            display: flex; 
+            border-bottom: 3px solid #dfe6e9; 
+            margin-bottom: 0; 
+        }
+        .tab-button { 
+            background: none; 
+            border: none; 
+            padding: 14px 30px; 
+            cursor: pointer; 
+            font-size: 1.05em; 
+            font-weight: 600;
+            transition: all 0.3s ease; 
+            border-radius: 10px 10px 0 0; 
+            color: #7f8c8d;
+        }
+        .tab-button:hover {
+            color: #34495e;
+            background-color: #f8f8f8;
+        }
+        .tab-button.active { 
+            background-color: white; 
+            border: 1px solid #dfe6e9;
+            border-bottom: 3px solid white; 
+            color: #4d57df; 
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.08); 
+            margin-bottom: -1px; 
+        }
+        
+        /* --- CONTENT & BOXES --- */
+        .tab-content { 
+            background-color: white; 
+            padding: 30px; 
+            border: 1px solid #dfe6e9;
+            border-radius: 0 12px 12px 12px; /* Angoli smooth */
+            min-height: 500px; 
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08); /* Ombra più definita */
+        }
+        h2 { 
+            color: #4d57df; 
+            border-bottom: 2px dashed #ecf0f1; 
+            padding-bottom: 15px; 
+            margin-top: 0; 
+            font-weight: 500;
+        }
+
+        /* --- CONTROLLI INPUT/BUTTON --- */
+        .search-controls { 
+            display: flex; 
+            gap: 15px; 
+            margin-bottom: 30px; 
+            align-items: center; 
+        }
+        input[type="text"] {
+            padding: 12px 20px;
+            border: 2px solid #dfe6e9;
+            border-radius: 25px; /* Più arrotondato */
+            font-size: 1em;
+            transition: all 0.3s ease;
+        }
+        input[type="text"]:focus {
+            border-color: #4d57df;
+            outline: none;
+            box-shadow: 0 0 10px rgba(77, 87, 223, 0.3);
+        }
+
+        /* --- BUTTONS --- */
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px; /* Arrotondamento massimo */
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        button:hover {
+            transform: translateY(-3px); /* Effetto sollevamento maggiore */
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+        /* Stili specifici per i bottoni principali */
+        .search-controls button, #collection-tab button {
+            background-color: #4d57df; 
+            color: white;
+            letter-spacing: 0.5px;
+        }
+        .card-item button { 
+            background-color: #2ecc71; /* Verde brillante per l'aggiunta */
+        }
+        .delete-btn { 
+            background-color: #ff7745 !important; /* Rosso Cancella */
+        }
+
+        /* --- RISULTATI E CARDS --- */
+        .search-results-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); 
+            gap: 30px; /* Più spazio tra le carte */
+        }
+        .card-item { 
+            border: none;
+            background-color: #fcfcfc;
+            padding: 20px; 
+            text-align: center; 
+            border-radius: 15px; /* Angoli ultra-smooth */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Ombra premium */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            position: relative;
+        }
+        .card-item:hover {
+            transform: translateY(-8px); /* Sollevamento accentuato */
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); 
+        }
+        .card-item img { 
+            max-width: 90%; 
+            height: auto; 
+            border-radius: 10px; 
+            margin-bottom: 15px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Dettagli della rarità/collezione */
+        .card-item p {
+            font-size: 0.9em;
+            color: #555;
+            margin: 5px 0;
+        }
+        .status-message { 
+            padding: 15px; 
+            border-radius: 10px; 
+            margin-bottom: 25px; 
+            font-weight: 600;
+            background-color: #f0f4f7;
+            border: 1px solid #dfe6e9;
+        }
+        .collection-controls { 
+            display: flex; 
+            gap: 15px; 
+            margin-bottom: 20px; 
+            align-items: center; 
+        }
+      
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Pokémon TCG Dashboard</h1>
+    </header>
+
+    <div class="container">
+        
+        <div class="tabs">
+            <button class="tab-button active" onclick="showTab('search-tab')">Search card</button>
+            <button class="tab-button" onclick="showTab('collection-tab')">My Collection</button>
+        </div>
+
+        <div id="search-tab" class="tab-content">
+            <h2>Search cards through TCG API</h2>
+            <p>Note: search by name only returns the card ID, add the card to the collection or search by ID to get complete info about the card.</p>
+            
+            <div class="search-controls">
+                <input type="text" id="search-input-name" placeholder="Search by name (ex. Charizard)" style="flex-grow: 1;">
+                <button onclick="handleSearchByName()">Search by name</button>
+                
+                <input type="text" id="search-input-id" placeholder="Search by ID (ex. swsh1-1)" style="width: 200px;">
+                <button onclick="handleSearchById()">Search by ID</button>
+            </div>
+            
+            <div id="search-status" class="status-message"></div>
+            
+            <div id="search-results-container" class="search-results-grid"></div>
+        </div>
+
+        <div id="collection-tab" class="tab-content" style="display:none;">
+            <h2>Manage your personal collection</h2>
+            
+            <div class="collection-controls">
+                <input type="text" id="collection-search-input" placeholder="Search a card by name in the collection" style="flex-grow: 1;">
+                <button onclick="loadCollection(document.getElementById('collection-search-input').value)">Search</button>
+                <button onclick="clearCollectionSearch()">Show all the card</button> 
+            </div>
+            
+            <div id="collection-status" class="status-message"></div>
+            
+            <div id="collection-results-container" class="search-results-grid"></div>
+        </div>
+
+    </div>
+
+    <script>
+        // Funzione per cambiare la tab
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.style.display = 'none');
+            document.getElementById(tabId).style.display = 'block';
+
+            document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`[onclick="showTab('${tabId}')"]`).classList.add('active');
+            
+            // Carica automaticamente la collezione quando si apre il tab
+            if (tabId === 'collection-tab') {
+                loadCollection(); 
+            }
+        }
+    </script>
+    <script src="app.js"></script>
+</body>
+</html>
