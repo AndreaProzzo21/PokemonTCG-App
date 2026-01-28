@@ -56,7 +56,7 @@ api:
 
 
 4. **Run the Application**
-Run your main entry point script (e.g., `main.py` or `app.py`):
+Run your main entry point script:
 ```bash
 python main.py
 
