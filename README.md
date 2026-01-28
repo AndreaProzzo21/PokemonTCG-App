@@ -32,15 +32,16 @@ The project is built using a layered architectural pattern to ensure maintainabi
 ## 🛠️ Installation
 
 1. **Clone the repository**
-   ```bash
+```bash
    git clone [https://github.com/yourusername/pokemon-tcg-tracker.git](https://github.com/yourusername/pokemon-tcg-tracker.git)
    cd pokemon-tcg-tracker
 
 ```
 
+
 2. **Install Dependencies**
 ```bash
-pip install flask flask-cors flask-sqlalchemy pyyaml requests
+   pip install flask flask-cors flask-sqlalchemy pyyaml requests
 
 ```
 
@@ -56,7 +57,7 @@ api:
 
 
 4. **Run the Application**
-Run your main entry point script (e.g., `main.py` or `app.py`):
+Run your main entry point script:
 ```bash
 python main.py
 
