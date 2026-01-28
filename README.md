@@ -73,9 +73,17 @@ The server will start on `http://localhost:5000`. Open `index.html` in your brow
 * `api/` - Flask REST Server implementation.
 * `presentation/` - Frontend files (HTML, CSS, JS).
 
+## 🤝 Contributing & Suggestions
+
+This project is open-source and constantly evolving! I built this as a foundation for Pokémon TCG fans, but there is always room for improvement.
+
+Feel free to:
+* **Open an Issue:** If you find a bug or have a suggestion for a new feature.
+* **Submit a Pull Request:** If you want to contribute directly to the code (e.g., UI improvements, new API integrations, or performance optimizations).
+* **Suggest Adjustments:** Whether it's about the architecture or the user experience, all feedback is welcome!
+
 ## 📝 License
 
 This project is for educational purposes. Pokémon is a trademark of Nintendo. Data provided by TCGDEX API.
 
-```
 
