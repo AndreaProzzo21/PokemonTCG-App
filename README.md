@@ -39,7 +39,7 @@ The project is built using a layered architectural pattern to ensure maintainabi
 ```
 
 2. **Install Dependencies**
-```bash
+   ```bash
 pip install flask flask-cors flask-sqlalchemy pyyaml requests
 
 ```
