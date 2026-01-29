@@ -33,7 +33,7 @@ The project is built using a layered architectural pattern to ensure maintainabi
 
 1. **Clone the repository**
 ```bash
-   git clone [https://github.com/yourusername/PokemonTCG-App.git](https://github.com/yourusername/PokemonTCG-App.git)
+   git clone [https://github.com/AndreaProzzo21/PokemonTCG-App.git](https://github.com/AndreaProzzo21/PokemonTCG-App.git)
    cd PokemonTCG-App
 
 ```
@@ -57,7 +57,7 @@ api:
 
 
 4. **Run the Application**
-Run your main entry point script:
+Run the main entry point script:
 ```bash
 python main.py
 
